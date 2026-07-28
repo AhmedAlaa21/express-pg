@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{pageTitle}
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="/css/main.css")
+  body
+    header.site-header
+      nav.nav
+        a.brand(href="/") Master Shop
+        ul.nav-links
+          li
+            a.active(href="/") Shop
+          li
+            a(href="/admin/add-product") Add product
+
+    main.page
+      h1.page-title My Products
+      p.page-subtitle Browse everything currently available in the shop.
+
+      section.panel
+        if products.length > 0
+          ul
+            each product in products
+              li= product.title
+        else
+          p.empty-state No products yet. Add one from the admin page.
