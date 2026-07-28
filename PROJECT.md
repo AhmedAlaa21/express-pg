@@ -11,7 +11,7 @@ Master Shop is an Express.js training app that lets an admin add products (title
 - **Runtime:** Node.js + Express 5  
 - **Template engine:** Pug  
 - **Architecture:** MVC (Model–View–Controller)  
-- **Data store:** In-memory array (resets when the server restarts)
+- **Data store:** `data/products.json` (loaded on each shop request; survives server restarts)
 
 ---
 
@@ -62,10 +62,10 @@ Owns **what a product is** and **how products are stored**:
 
 Key methods:
 
-- `save()` — pushes the product instance into the shared `products` array  
-- `Product.fetchAll()` — returns every saved product  
+- `save(callback)` — reads `data/products.json`, appends the product, writes the file back  
+- `Product.fetchAll(callback)` — reads `data/products.json` and returns the product list (empty array if the file is missing or invalid)  
 
-No Express or HTTP code lives here. Controllers call the model; the model does not know about requests or responses.
+On first load, if the file does not exist yet, the app treats the catalog as empty (`[]`) and still serves the shop page.
 
 ### Controller (`controllers/`)
 
@@ -178,7 +178,7 @@ Open [http://localhost:8080](http://localhost:8080).
 3. Submit — you are redirected to the shop  
 4. The new product appears as a card with all details  
 
-**Note:** Products live only in memory. Restarting the server clears the list.
+**Note:** Products are stored in `data/products.json`, so they remain after a server restart.
 
 ---
 

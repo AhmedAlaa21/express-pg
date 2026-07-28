@@ -1,13 +1,14 @@
 const Product = require("../models/product");
 
 /**
- * Renders the shop page with all products.
+ * Renders the shop page with all products loaded from products.json.
  */
 exports.getProducts = (req, res) => {
-  const products = Product.fetchAll();
-  res.render("shop/product-list", {
-    pageTitle: "Shop",
-    path: "/",
-    products,
+  Product.fetchAll((products) => {
+    res.render("shop/product-list", {
+      pageTitle: "Shop",
+      path: "/",
+      products,
+    });
   });
 };
