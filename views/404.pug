@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{pageTitle} | Master Shop
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="/css/main.css")
+  body
+    main.error-page
+      div
+        p.error-code 404
+        h1 Page not found
+        p The page you are looking for does not exist.
+        a.btn.btn-secondary(href="/") Back to shop

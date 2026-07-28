@@ -1,0 +1,25 @@
+extends ../layouts/main.pug
+
+block content
+  h1.page-title Add Product
+  p.page-subtitle Create a new product with full details for the shop.
+
+  section.panel
+    form.form(action="/admin/add-product", method="post")
+      .form-group
+        label(for="title") Title
+        input#title(type="text", name="title", placeholder="e.g. Wireless keyboard", required, autofocus)
+
+      .form-group
+        label(for="imageUrl") Image URL
+        input#imageUrl(type="url", name="imageUrl", placeholder="https://example.com/image.jpg", required)
+
+      .form-group
+        label(for="price") Price
+        input#price(type="number", name="price", step="0.01", min="0", placeholder="29.99", required)
+
+      .form-group
+        label(for="description") Description
+        textarea#description(name="description", rows="4", placeholder="Short product description", required)
+
+      button.btn.btn-primary(type="submit") Add product

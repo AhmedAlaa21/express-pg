@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{pageTitle} | Master Shop
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="/css/main.css")
+  body
+    header.site-header
+      nav.nav
+        a.brand(href="/") Master Shop
+        ul.nav-links
+          li
+            a(href="/", class=(path === "/" ? "active" : undefined)) Shop
+          li
+            a(href="/admin/add-product", class=(path === "/admin/add-product" ? "active" : undefined)) Add product
+
+    main.page
+      block content
